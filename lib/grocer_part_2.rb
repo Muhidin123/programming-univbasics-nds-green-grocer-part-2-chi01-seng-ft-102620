@@ -8,10 +8,12 @@ def apply_coupons(cart, coupons)
     #binding.pry
     coupon_item = "#{coupons[counter][:item]} W/COUPON"
     cart_item_coupon = find_item_by_name_in_collection(coupon_item , cart)
+    #binding.pry
     if item && item[:count] >= coupons[counter][:num]
       if cart_item_coupon
         cart_item_coupon[:count] += coupons[counter][:num]
         item[:count] -= coupons[counter][:num]
+        #binding.pry
       else
         cart_item_coupon = {
             :item => coupon_item,
@@ -21,7 +23,7 @@ def apply_coupons(cart, coupons)
         }
         cart << cart_item_coupon
         item[:count] -= coupons[counter][:num]
-        binding.pry
+        #binding.pry
       end
     end
     counter +=1
@@ -48,7 +50,7 @@ def checkout(cart, coupons)
 
   total = 0
   counter = 0
-
+  #binding.pry
   while counter < receipt.length
     total += receipt[counter][:price] * receipt[counter][:count]
     counter += 1
