@@ -1,9 +1,11 @@
 require_relative './part_1_solution.rb'
+require 'pry'
 
 def apply_coupons(cart, coupons)
   counter = 0
   while counter < coupons.length
     item = find_item_by_name_in_collection(coupons[counter][:item], cart)
+    binding.pry
     coupon_item = "#{coupons[counter][:item]} W/COUPON"
     cart_item_coupon = find_item_by_name_in_collection(coupon_item , cart)
     if item && item[:count] >= coupons[counter][:num]
