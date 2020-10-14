@@ -1,4 +1,4 @@
-
+require_relative './part_1_solution.rb'
 
 def apply_coupons(cart, coupons)
   counter = 0
